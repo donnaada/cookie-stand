@@ -3,8 +3,10 @@
 ## Todo
 
 <!-- project -->
+- [ ] Create low-fidelity wireframe
+- [ ] create high-fidelity wireframe
+- [ ] Design client-facing page
 - [ ] create sales.html
-
 
 <!-- index.html  -->
 - [ ] Add image of the provided fish
@@ -23,7 +25,7 @@
 - [ ] Create JS Object literal for each shop
     > Each location will be responsible for generating sales data and providing output on an html document
 
-The Javascript file should be able to perform the following:
+The Javascript file should be able to perform the following: (Due 3/14/23)
 
 - [ ] Store the min/max hourly customers, and the average cookies per customer, in object properties.
 - [ ] Use a method of that object to generate a random number of customers per hour.

@@ -8,11 +8,6 @@ A proof of concept application to calculate the number of cookies each location 
 
 Your friend Pat has come up with a business idea by combining his love for sweets and his passion for healthy ecosystems. Pat has developed a recipe for a coffee-time confection called Salmon Cookies. These cookies made into the shape of a salmon and are suitable for both humans and salmon to enjoy.
 
-``` html
-<!-- Coolors Palette Widget -->
-https://coolors.co/9a4a24-beb5a7-776e61-bc996a-000000-69563f
-```
-
 ### Author: Student/Group Name
 
 ### Links and Resources

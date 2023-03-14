@@ -35,23 +35,3 @@
 
 <script src="./assets/js/main.js"></script>
 </html>
-
-
-let seattle = {
-  min: 23,
-  max: 65,
-  avgCookie: 6.3,
-  cookiesSoldEachHour: [],
-  totalCookiesSold: 0,
-  getCookiesSold: function() {
-    
-    for (let i = 0; i <= 20; i++) {
-      
-      let cookiesSold = Math.floor(Math.random() * (this.max - this.min + 1) + this.min) * this.avgCookie;
-      cookiesSold = Math.round(cookiesSold);
-      this.cookiesSoldEachHour.push(cookiesSold);
-      
-      this.totalCookiesSold += cookiesSold;
-    }
-  }
-};

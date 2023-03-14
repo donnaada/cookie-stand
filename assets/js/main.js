@@ -1,93 +1,80 @@
-// Store the min/max hourly customers, and the average cookies per customer, in object properties.
-function cookieStand(location, minCust, maxCust, avgCookiePerCustomer){
-    return {
-        location: location,
-        min: minCust,
-        max: maxCust,
-        avgCookie: avgCookiePerCustomer
+function openUpStand(standLocation, minCust, maxCust, avgSale) {
+  return {
+    location: standLocation,
+    min: minCust,
+    max: maxCust,
+    avgSale: avgSale,
+    customersPerHour: [],
+    cookiesPerHour: [],
+    totalCookies: 0,
 
+    // generate random number of cutomers based on value passed through parameters
+    // Get random number between two numbers, inclusive
+    randomCustomers: function() {
+      let min = Math.ceil(this.min);
+      let max = Math.floor(this.max);
+      let randomNum = Math.floor(Math.random() * (max - min + 1) + min);
+      return randomNum;
+    },
+
+    // calculate Daipan number of cookies sold
+    dailyCookiesSold: function() {
+      for (let i = 6; i <= 20; i++) {
+        let customers = this.randomCustomers();
+        this.customersPerHour.push(customers);
+        let cookies = Math.round(customers * this.avgSale);
+        this.cookiesPerHour.push(cookies);
+        this.totalCookies += cookies;
+      }
     }
+  };
 }
 
-// Use a method of that object to generate a random number of customers per hour. Objects/Math/random
-function randomCustomer(min, max){
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    randNum= Math.random() * (max - min + 1) + min;
-    randNum = Math.floor(randNum);
+function appendHTML(sectionId, standLocation) {
+  let shopSection = document.getElementById(sectionId);
+  let shopName = document.createElement('h2');
+  let shopUL = document.createElement('ul');
 
-    return 
-}
+  shopName.textContent = `${standLocation.location}`;
+  shopSection.appendChild(shopName);
 
-// Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated.
+  for (let i = 6; i <= 20; i++) {
 
-let storeOpen = 6; // 6am
-let storeClose = 20; // Using 24 hour clock
-let hoursOpen = storeClose - storeOpen;
-// console.log(hoursOpen);
+    let shopLI = document.createElement('li');
 
-// let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm']; // hours stored in array
-let cookiesSoldPerHour = [];
-let cookiesSold = 0;
-let totalCookiesSold = 0;
-
-// for (i = 0; i < hours.length; i++){
-//     let numOfCustomers = randomCustomer(seattle.min, seattle.max);
-//     // console.log(numOfCustomers);
-//     let cookiesSold = numOfCustomers * seattle.avgSale;
-//     cookiesSold = Math.round(cookiesSold)
-//     // console.log(cookiesSold);
-//     cookiesSoldPerHour.push(cookiesSold);
-//     console.log(cookiesSoldPerHour);
-
-    
-// }
-
-
-function howMuchCookies(location){
-    
-    for (i = 0; i < hours.length; i++){
-        let numOfCustomers = randomCustomer(location.min, location.max);
-        console.log(location.min, location.max, numOfCustomers);
-        let cookiesSold = numOfCustomers * location.avgSale;
-        cookiesSold = Math.round(cookiesSold)
-        cookiesSoldPerHour.push(cookiesSold);
-        console.log(cookiesSoldPerHour);
-        totalCookiesSold += cookiesSoldPerHour[i];
+    if (i === 12) {
+      shopLI.textContent = `${i}pm : ${standLocation.cookiesPerHour[i - 6]} cookies`;
+    } else if (i > 12) {
+      shopLI.textContent = `${i - 12}pm: ${standLocation.cookiesPerHour[i - 6]} cookies`;
+    } else {
+      shopLI.textContent = `${i}am: ${standLocation.cookiesPerHour[i - 6]} cookies`;
     }
 
-    sumCookies(cookiesSoldPerHour);
-    
-    
+    shopUL.appendChild(shopLI);
+  }
+  let totalDailyCookies = document.createElement('li');
+  totalDailyCookies.textContent = `Total: ${standLocation.totalCookies} cookies`;
+  shopUL.appendChild(totalDailyCookies);
+  shopSection.appendChild(shopUL);
 }
 
-console.log(sumCookies(seattle));
+let seattle = openUpStand('Seattle', 23, 65, 6.3);
+seattle.dailyCookiesSold();
+appendHTML('seattleSales', seattle);
 
+let tokyo = openUpStand('Tokyo', 3, 24, 1.2);
+tokyo.dailyCookiesSold();
+appendHTML('tokyoSales', tokyo);
 
+let dubai = openUpStand('Dubai', 11, 38, 3.7);
+dubai.dailyCookiesSold();
+appendHTML('dubaiSales', dubai);
 
+let paris = openUpStand('Paris',20,38,2.3);
+paris.dailyCookiesSold();
+appendHTML('parisSales', paris);
 
-// Store the results for each location in a separate array… perhaps as a property of the object representing that location.
-
-// get content container
-let seattleShop = document.getElementById('seattleSales');
-
-//create elements to be displayed
-let seattleShopHeader = document.createElement('h2');
-let seattleShopSales = document.createElement('ul');
-
-
-
-//assign values from object
-seattleShopHeader.textContent = seattle.location;
-
-//append elements to container
-seattleShop.appendChild(seattleShopHeader);
-
-howMuchCookies(seattle);
-
- 
-
-
-
-
+let lima = openUpStand('Lima', 2, 16, 4.6);
+lima.dailyCookiesSold();
+appendHTML('lima', lima);
 

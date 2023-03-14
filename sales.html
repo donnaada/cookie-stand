@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home | Cookie Stand</title>
-  <link rel="stylesheet" href="assets/css/reset.css">
+  <title>Sales | Cookie Stand</title>
+  <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
   <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -14,7 +14,7 @@
     <h1>Starter Template</h1>
     <nav>
       <ul>
-        <li><a href="./sales.html">Link 1</a></li>
+        <li><a href="./index.html">Link 1</a></li>
         <li>Link 2</li>
         <li>Link 3</li>
         <li>Link 4</li>
@@ -35,3 +35,23 @@
 
 <script src="./assets/js/main.js"></script>
 </html>
+
+
+let seattle = {
+  min: 23,
+  max: 65,
+  avgCookie: 6.3,
+  cookiesSoldEachHour: [],
+  totalCookiesSold: 0,
+  getCookiesSold: function() {
+    
+    for (let i = 0; i <= 20; i++) {
+      
+      let cookiesSold = Math.floor(Math.random() * (this.max - this.min + 1) + this.min) * this.avgCookie;
+      cookiesSold = Math.round(cookiesSold);
+      this.cookiesSoldEachHour.push(cookiesSold);
+      
+      this.totalCookiesSold += cookiesSold;
+    }
+  }
+};

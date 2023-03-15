@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6{
   margin-bottom: 0.5rem;
   font-weight: 600;
   line-height: 1.2;
-  color: #9a4a24;
+  color: #703012;
 }
 
 h1 {
@@ -54,12 +54,12 @@ p {
 }
 
 a {
-  color: #9a4a24;
+  color: #733011;
   text-decoration: underline;
 }
 
 a:hover{
-  color: #c76234;
+  color: #a1461c;
 }
 
 ol,ul{
@@ -87,20 +87,27 @@ img{
  display: block;
 }
 
+sup{
+  vertical-align: super;
+  font-size: smaller;
+  line-height: normal;
+}
+
+sub{
+  vertical-align: sub;
+  font-size: smaller;
+  line-height: normal;
+}
+
 /* header */
 
 header{
-  background-color: #bc996a;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.2rem 1rem;
+  background-color: #9a4a24;
   border-bottom: 6px solid #9a4a24;
 }
 
 header img {
-width: 30%;
+width: 100%;
 /* margin: 0 auto; */
 }
 
@@ -113,7 +120,7 @@ nav{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
 }
 
@@ -131,12 +138,31 @@ nav ul li{
   margin: 0 5px;
 }
 
-/* main */
+nav ul li a{
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+nav ul li a:hover{
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* index.html */
 main{
   background: #fff9f0;
   padding: 10px;
 }
 
+.intro {
+  text-align: center;
+}
+
+
+
+/* sales.html */
 main#salesData{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #69563f ;

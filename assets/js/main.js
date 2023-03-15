@@ -58,7 +58,7 @@ CookieLocation.prototype.render = function(){
   let totalCookiesSold = this.totalCookiesSold;
   let tableDataTotal = document.createElement('td');
   tableDataTotal.textContent = totalCookiesSold;
-  tableDataTotal.style='font-weight: 600; list-style:none; padding: 10px 0;';
+  // tableDataTotal.style='font-weight: 600; list-style:none; padding: 10px 0;';
   dataRow.appendChild(tableDataTotal);
 };
 
@@ -104,7 +104,7 @@ function displayTableHeader(){
   // give the header the Total Value
   totalHeader.textContent = 'Total';
   // this just gives it style
-  totalHeader.style='font-weight: 600; list-style:none; padding: 10px 0;';
+  // totalHeader.style='font-weight: 600; list-style:none; padding: 10px 0;';
   // adds the total column after all the times from the for-loop
   headerRow.appendChild(totalHeader);
 }
@@ -130,7 +130,7 @@ function displayTableFooter(){
   let totalFooter = document.createElement('td');
 
   totalFooter.textContent = 'Total';
-  totalFooter.style='font-weight: 600; list-style:none; padding: 10px 0;';
+  // totalFooter.style='font-weight: 600; list-style:none; padding: 10px 0;';
   footerRow.appendChild(totalFooter);
 
   let grandTotal = 0;
@@ -146,7 +146,7 @@ function displayTableFooter(){
     }
     let tableFooterTotal = document.createElement('td');
     tableFooterTotal.textContent = hourlyTotal;
-    tableFooterTotal.style='font-weight: 600; list-style:none; padding: 10px 0;';
+    // tableFooterTotal.style='font-weight: 600; list-style:none; padding: 10px 0;';
     footerRow.appendChild(tableFooterTotal);
 
     h++;
@@ -154,7 +154,7 @@ function displayTableFooter(){
 
   let grandTotalFooter = document.createElement('td');
   grandTotalFooter.textContent = grandTotal;
-  grandTotalFooter.style='font-weight: 600; list-style:none; padding: 10px 0;';
+  // grandTotalFooter.style='font-weight: 600; list-style:none; padding: 10px 0;';
   footerRow.appendChild(grandTotalFooter);
 }
 

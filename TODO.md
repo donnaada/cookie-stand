@@ -9,11 +9,11 @@
 - [ ] create sales.html
 
 <!-- index.html  -->
-- [ ] Add image of the provided fish
-- [ ] A custom sans-serif Google Font for use in heading tags (<h# />)
-- [ ] A specified standard sans-serif web font for sales data (such as Arial, Verdana, or Helvetica).
-- [ ] A specified standard serif web font for text (such as Georgia, Times).
-- [ ] Specified different font colors for all three font uses.
+- [x] Add image of the provided fish
+- [x] A custom sans-serif Google Font for use in heading tags (<h# />)
+- [x] A specified standard sans-serif web font for sales data (such as Arial, Verdana, or Helvetica).
+- [x] A specified standard serif web font for text (such as Georgia, Times).
+- [x] Specified different font colors for all three font uses.
 - [ ] A background color for the default page background (make sure font colors have good contrast and are readable on this background).
 - [ ] A different background color for elements such boxes and tables (so make sure the font colors contrast against this well, too!).
 - [ ] Anything else you’d like to add related to style. But remember: simplicity, clarity, and consistency are good things in design.

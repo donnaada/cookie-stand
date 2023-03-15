@@ -3,7 +3,6 @@ let standClose = 20;
 let hoursOpen = standClose - standOpen;
 let stores = [];
 
-
 function CookieLocation(standLocation, minCust, maxCust, avgSale) {
   this.location = standLocation;
   this.min = minCust;
@@ -34,7 +33,7 @@ CookieLocation.prototype.dailyCookiesSold = function(){
   } //end for loop
 };
 
-CookieLocation.prototype.dataRow = function(){
+CookieLocation.prototype.render = function(){
   // this.createHeader();
   let table = document.getElementById('dataTable');
   let tbody = document.createElement('tbody');
@@ -114,7 +113,7 @@ function displayTableBody(){
   for (let i = 0; i < stores.length; i++){
     let store = stores[i];
     store.dailyCookiesSold();
-    store.dataRow();
+    store.render();
   }
 }
 
@@ -134,7 +133,6 @@ function displayTableFooter(){
   totalFooter.style='font-weight: 600; list-style:none; padding: 10px 0;';
   footerRow.appendChild(totalFooter);
 
-  
   let grandTotal = 0;
 
   // while the hour is less than the hours open
@@ -169,4 +167,3 @@ let lima = new CookieLocation('Lima', 2, 16, 4.6);
 displayTableHeader();
 displayTableBody();
 displayTableFooter();
-

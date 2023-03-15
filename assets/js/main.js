@@ -40,7 +40,7 @@ CookieLocation.prototype.render = function(){
 
   table.appendChild(tbody);
   let dataRow = document.createElement('tr');
-  table.appendChild(tbody);
+  // tbody.appendChild(dataRow);
 
   let tableData = document.createElement('td');
   tbody.appendChild(dataRow);
@@ -48,12 +48,19 @@ CookieLocation.prototype.render = function(){
   dataRow.appendChild(tableData);
 
   let cookiesPerHour = this.cookiesPerHour;
-  cookiesPerHour.forEach(cookie =>{
-    // console.log(cookie);
-    let tableDataCookies = document.createElement('td');
-    tableDataCookies.textContent = cookie;
-    dataRow.appendChild(tableDataCookies);
-  });
+
+  for (let i = 0; i < cookiesPerHour.length; i++){
+    let tableData = document.createElement('td');
+    tableData.textContent = cookiesPerHour[i];
+    dataRow.appendChild(tableData);
+  }
+
+  // cookiesPerHour.forEach(cookie =>{
+  //   // console.log(cookie);
+  //   let tableDataCookies = document.createElement('td');
+  //   tableDataCookies.textContent = cookie;
+  //   dataRow.appendChild(tableDataCookies);
+  // });
 
   let totalCookiesSold = this.totalCookiesSold;
   let tableDataTotal = document.createElement('td');

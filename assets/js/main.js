@@ -192,7 +192,7 @@ addStandBtn.addEventListener('submit', function(event){
 // let lima = new CookieLocation('Lima', 2, 16, 4.6);
 
 
-// For Testing Math stuffs
+// makes it easier to track totals for Testing Math stuffs
 let seattle = new CookieLocation('Seattle', 1, 1, 1);
 let tokyo = new CookieLocation('Tokyo', 1, 1, 1);
 let dubai = new CookieLocation('Dubai', 1, 1, 1);

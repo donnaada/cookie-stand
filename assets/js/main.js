@@ -23,6 +23,8 @@ CookieLocation.prototype.randomCustomers = function(){
 };
 
 CookieLocation.prototype.dailyCookiesSold = function(){
+  this.customersPerHour.splice(0, this.customersPerHour.length);
+  this.cookiesPerHour.splice(0, this.cookiesPerHour.length);
   // for loop
   for (let i = standOpen; i <= standClose; i++) {
     let customers = this.randomCustomers();
@@ -33,34 +35,36 @@ CookieLocation.prototype.dailyCookiesSold = function(){
   } //end for loop
 };
 
+//Global variables to get Table Elements to be used in render() method and related table functions.
+let thead = document.getElementById('tableHeader');
+let tbody = document.getElementById('tableBody');
+let tfoot = document.getElementById('tableFooter');
+
 CookieLocation.prototype.render = function(){
-  // this.createHeader();
-  let table = document.getElementById('dataTable');
-  let tbody = document.createElement('tbody');
-
-  table.appendChild(tbody);
   let dataRow = document.createElement('tr');
-  // tbody.appendChild(dataRow);
-
-  let tableData = document.createElement('td');
+  dataRow.innerHTML = '';
   tbody.appendChild(dataRow);
+
+  // create cells
+  let tableData = document.createElement('td');
+  tableData.innerHTML = '';
   tableData.textContent = this.location;
   dataRow.appendChild(tableData);
 
   let cookiesPerHour = this.cookiesPerHour;
 
-  for (let i = 0; i < cookiesPerHour.length; i++){
-    let tableData = document.createElement('td');
-    tableData.textContent = cookiesPerHour[i];
-    dataRow.appendChild(tableData);
-  }
+  // for (let i = 0; i < cookiesPerHour.length; i++){
+  //   let tableData = document.createElement('td');
+  //   tableData.textContent = cookiesPerHour[i];
+  //   dataRow.appendChild(tableData);
+  // }
 
-  // cookiesPerHour.forEach(cookie =>{
-  //   // console.log(cookie);
-  //   let tableDataCookies = document.createElement('td');
-  //   tableDataCookies.textContent = cookie;
-  //   dataRow.appendChild(tableDataCookies);
-  // });
+  cookiesPerHour.forEach(cookie =>{
+    // console.log(cookie);
+    let tableDataCookies = document.createElement('td');
+    tableDataCookies.textContent = cookie;
+    dataRow.appendChild(tableDataCookies);
+  });
 
   let totalCookiesSold = this.totalCookiesSold;
   let tableDataTotal = document.createElement('td');
@@ -70,15 +74,13 @@ CookieLocation.prototype.render = function(){
 };
 
 function displayTableHeader(){
-  //looks for the table by id='dataTable'
-  let table = document.getElementById('dataTable');
-  // creates a <thead> element to store the header
-  let thead = document.createElement('thead');
+  //looks for the <thead> by id='tableHeader'
+
   // creates <tr> to hold each time cell
   let headerRow = document.createElement('tr');
 
   //Add the <thead> to the <table>
-  table.appendChild(thead);
+  // table.appendChild(thead);
 
   //add headerRow <tr> to the <thead>
   thead.appendChild(headerRow);
@@ -126,16 +128,11 @@ function displayTableBody(){
 
 function displayTableFooter(){
   console.log('tableFooter');
-  let table = document.getElementById('dataTable');
 
-  let tfoot = document.createElement('tfoot');
   let footerRow = document.createElement('tr');
-
-  table.appendChild(tfoot);
   tfoot.appendChild(footerRow);
 
   let totalFooter = document.createElement('td');
-
   totalFooter.textContent = 'Total';
   // totalFooter.style='font-weight: 600; list-style:none; padding: 10px 0;';
   footerRow.appendChild(totalFooter);
@@ -165,11 +162,42 @@ function displayTableFooter(){
   footerRow.appendChild(grandTotalFooter);
 }
 
-let seattle = new CookieLocation('Seattle', 23, 65, 6.3);
-let tokyo = new CookieLocation('Tokyo', 3, 24, 1.2);
-let dubai = new CookieLocation('Dubai', 11, 38, 3.7);
-let paris = new CookieLocation('Paris',20,38,2.3);
-let lima = new CookieLocation('Lima', 2, 16, 4.6);
+
+let addStandBtn = document.getElementById('addCookieStand');
+
+addStandBtn.addEventListener('submit', function(event){
+  event.preventDefault();
+  // same as let stand = event.target.stand.value;
+  // let min = event.target.min.value;
+  // let max = event.target.max.value;
+  // let value = event.target.value
+  let {stand, min, max, avg} = event.target;
+  stand = stand.value;
+  min = parseInt(min.value);
+  max = parseInt(max.value);
+  avg = parseFloat(avg.value);
+
+  stores.splice(0,stores.length);
+
+  new CookieLocation(stand, min, max, avg);
+  alert('something happened');
+  console.log(stores);
+  displayTableBody();
+});
+
+// let seattle = new CookieLocation('Seattle', 23, 65, 6.3);
+// let tokyo = new CookieLocation('Tokyo', 3, 24, 1.2);
+// let dubai = new CookieLocation('Dubai', 11, 38, 3.7);
+// let paris = new CookieLocation('Paris',20,38,2.3);
+// let lima = new CookieLocation('Lima', 2, 16, 4.6);
+
+
+// For Testing Math stuffs
+let seattle = new CookieLocation('Seattle', 1, 1, 1);
+let tokyo = new CookieLocation('Tokyo', 1, 1, 1);
+let dubai = new CookieLocation('Dubai', 1, 1, 1);
+let paris = new CookieLocation('Paris', 1, 1, 1);
+let lima = new CookieLocation('Lima', 1, 1, 1);
 
 displayTableHeader();
 displayTableBody();

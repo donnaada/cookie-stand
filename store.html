@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Cookie | Cookie Stand</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;0,600;1,100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <img src="./assets/img/hero-img.png" alt="">
+    </div>
+  
+    <!-- <img src="./assets/img/salmon.png" alt="salmon"> -->
+    <!-- <h1>Pat's Salmon Cookies</h1> -->
+
+    <nav>
+      <ul>
+        <li><a href="./sales.html">Cookie Stand Sales</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <form>
+
+      <fieldset>
+        <legend>Order Cookies</legend>
+        <p>
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name">
+        </p>
+        <p>
+          <label for="address"></label>
+          <input type="text" name="address" id="address" placeholder="Address">
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Payment Information</legend>
+        <p>
+          <label for="paymentInfo"></label>
+          <input type="text" name="paymentInfo" id="paymentInfo" placeholder="Cash">
+        </p>
+      </fieldset>
+          
+      <fieldset>
+        <legend>Select Cookies</legend>
+        <label for="cookie1">Salmon Cookie (Plain)</label>
+        <input type="checkbox" name="cookie1" id="cookie1">
+        <label for="cookie2">Salmon Cookie (Fancy)</label>
+        <input type="checkbox" name="cookie2" id="cookie2">
+        <label for="cookie3">Chinook Cookie (Plain)</label>
+        <input type="checkbox" name="cookie3" id="cookie3">
+        <label for="cookie4">Chinook Cookie (Fancy)</label>
+        <input type="checkbox" name="cookie4" id="cookie4">
+      </fieldset>
+
+      <button type="submit">Submit</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; |<a href="">Link to Somewhere</a></p>
+  </footer>
+</body>
+
+<script src="./assets/js/main.js"></script>
+
+</html>

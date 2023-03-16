@@ -30,15 +30,44 @@
     </nav>
   </header>
   <main id="salesData">
-    <table id="dataTable"></table>
+    <form style="width: 100%;" id="addCookieStand">
+      <fieldset style="width: 100%; padding: 5px 20px;">
+        <legend>Add New Cookie Stand</legend>
+        <div>
+          <label for="standLocation">Location</label>
+          <input type="text" name="stand" id="standLocation" placeholder="New Stand Location">
+        </div>
+        <div>
+          <label for="minCust">Minimum Customers</label>
+          <input type="number" name="min" id="minCust" placeholder="# Min Customers">
+        </div>
+        <div>
+          <label for="maxCust">Maximum Customers</label>
+          <input type="number" name="max" id="maxCust" placeholder="# Max Customers">
+        </div>
+        <div>
+          <label for="avgCookiesSold">Average Cookies Sold/Hr</label>
+          <input type="number" name="avg" id="avgCookiesSold" placeholder="Average Cookies per Customer">
+        </div>
+          <button>Do Stuff
+          </button>
+      </fieldset>
+    </form>
+    <table id="dataTable">
+      <thead id="tableHeader"></thead>
+      <tbody id="tableBody"></tbody>
+      <tfoot id="tableFooter"></tfoot>
+    </table>
   </main>
-
-
 
   <footer>
     <p>&copy |<a href="">Link to Somewhere</a></p>
   </footer>
 </body>
+
+<script>
+
+</script>
 
 <script src="./assets/js/main.js"></script>
 </html>

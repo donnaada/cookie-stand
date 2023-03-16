@@ -1,6 +1,6 @@
 *, *::before, *::after {
   box-sizing: border-box;
-  border: thin solid silver;
+  /* border: thin solid silver; */
 }
 
 html{
@@ -15,6 +15,11 @@ body {
     min-height: 100vh;    
     /* font-family: 'Cabin', sans-serif; */
     font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #fff9f0;
+}
+
+section{
+  
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -158,11 +163,89 @@ main{
   padding: 10px;
 }
 
-.intro {
+.container{
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px
+}
+.block{
+  display: block;
+}
+
+.text-center {
   text-align: center;
 }
 
+.flex{
+  display: flex;
+}
 
+.flex-column{
+  flex-direction: column;
+}
+
+.flex-row{
+  flex-direction: row;
+}
+
+.justify-center{
+  justify-content: center;
+}
+
+.justify-between{
+  justify-content: space-between;
+}
+
+.justify-around{
+  justify-content: space-around;
+}
+
+.aItems-center{
+  align-items: center;
+}
+
+.stores{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.storeCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid rgba(0,0,0,0.5);
+  margin: 2px;
+}
+.storeCard h6{
+  text-align: center;
+}
+.storeCard address{
+  display: flex;
+  flex-direction: column;
+  padding: 0 5px 5px 5px; 
+  margin: 0 auto;
+}
+
+.storeCard address span,
+.storeCard address a{
+  display: block;
+}
+
+.galleryImages{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.galleryImages img{
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  margin: 5px;
+}
 
 /* sales.html */
 main#salesData{

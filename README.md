@@ -17,7 +17,7 @@ Your friend Pat has come up with a business idea by combining his love for sweet
 
 ### Lighthouse Accessibility Report Score
 
-* Provide a screenshot of your score after running a Lighthouse Accessibility report.
+![LightHouse Score Screenshot](./assets/img/lighthouse.png)
 
 ### Reflections and Comments
 

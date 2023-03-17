@@ -118,22 +118,7 @@ function displayTableBody(){
     store.render();
   }
 
-  // displayTableFooter();
-
 }
-
-// function updateBody(){
-//   tbody.innerHTML ='';
-
-  
-//   for (let i = 0; i < stores.length; i++){
-//     let store = stores[i];
-//     store.dailyCookiesSold();
-//     store.render();
-//   }
-
-
-// }
 
 function displayTableFooter(){
   tfoot.innerHTML ='';
@@ -170,40 +155,6 @@ function displayTableFooter(){
   footerRow.appendChild(grandTotalFooter);
 }
 
-// function updateFooter(){
-//   tfoot.innerHTML ='';
-//   let footerRow = document.createElement('tr');
-//   tfoot.appendChild(footerRow);
-
-//   let totalFooter = document.createElement('td');
-//   totalFooter.textContent = 'Total';
-//   footerRow.appendChild(totalFooter);
-
-//   let grandTotal = 0;
-
-//   // while the hour is less than the hours open
-//   let h = 0;
-//   while (h <= hoursOpen){
-//     let hourlyTotal = 0; // resets the hourlyTotal to zero after each iteration
-//     for (let i = 0; i < stores.length; i++){
-//       console.log(stores.length);
-//       hourlyTotal += stores[i].cookiesPerHour[h]; //hourlyTotal starts at 0 because of code on line 143.
-//       grandTotal += stores[i].cookiesPerHour[h]; //keeps running total because we do not reset grandTotal = 0 anywhere in for or while loop.
-//     }
-//     let tableFooterTotal = document.createElement('td');
-//     tableFooterTotal.innerHTML='';
-//     tableFooterTotal.textContent = hourlyTotal;
-//     // tableFooterTotal.style='font-weight: 600; list-style:none; padding: 10px 0;';
-//     footerRow.appendChild(tableFooterTotal);
-
-//     h++;
-//   }
-
-//   let grandTotalFooter = document.createElement('td');
-//   grandTotalFooter.textContent = grandTotal;
-//   // grandTotalFooter.style='font-weight: 600; list-style:none; padding: 10px 0;';
-//   footerRow.appendChild(grandTotalFooter);
-// }
 
 let addStandBtn = document.getElementById('addCookieStand');
 
@@ -225,19 +176,19 @@ addStandBtn.addEventListener('submit', function(event){
   displayTableFooter();
 });
 
-// let seattle = new CookieLocation('Seattle', 23, 65, 6.3);
-// let tokyo = new CookieLocation('Tokyo', 3, 24, 1.2);
-// let dubai = new CookieLocation('Dubai', 11, 38, 3.7);
-// let paris = new CookieLocation('Paris',20,38,2.3);
-// let lima = new CookieLocation('Lima', 2, 16, 4.6);
+let seattle = new CookieLocation('Seattle', 23, 65, 6.3);
+let tokyo = new CookieLocation('Tokyo', 3, 24, 1.2);
+let dubai = new CookieLocation('Dubai', 11, 38, 3.7);
+let paris = new CookieLocation('Paris',20,38,2.3);
+let lima = new CookieLocation('Lima', 2, 16, 4.6);
 
 
 // makes it easier to track totals for Testing Math stuffs
-let seattle = new CookieLocation('Seattle', 1, 1, 1);
+// let seattle = new CookieLocation('Seattle', 1, 1, 1);
 // let tokyo = new CookieLocation('Tokyo', 1, 1, 1);
 // let dubai = new CookieLocation('Dubai', 1, 1, 1);
 // let paris = new CookieLocation('Paris', 1, 1, 1);
-let lima = new CookieLocation('Lima', 1, 1, 1);
+// let lima = new CookieLocation('Lima', 1, 1, 1);
 
 displayTableHeader();
 displayTableBody();

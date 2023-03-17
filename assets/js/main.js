@@ -8,6 +8,8 @@ let thead = document.getElementById('tableHeader');
 let tbody = document.getElementById('tableBody');
 let tfoot = document.getElementById('tableFooter');
 
+let addStandBtn = document.getElementById('addCookieStand');
+
 function CookieLocation(standLocation, minCust, maxCust, avgSale) {
   this.location = standLocation;
   this.min = minCust;
@@ -18,7 +20,6 @@ function CookieLocation(standLocation, minCust, maxCust, avgSale) {
   this.totalCookiesSold = 0;
   stores.push(this);
 }
-
 // prototype method because connected to an object.
 CookieLocation.prototype.randomCustomers = function(){
   let min = Math.ceil(this.min);
@@ -27,10 +28,16 @@ CookieLocation.prototype.randomCustomers = function(){
   return randomNum;
 };
 
-CookieLocation.prototype.dailyCookiesSold = function(){
+CookieLocation.prototype.resetCalc = function(){
   this.customersPerHour = [];
   this.cookiesPerHour = [];
   this.totalCookiesSold = 0;
+}
+
+CookieLocation.prototype.dailyCookiesSold = function(){
+  
+  this.resetCalc();
+
   // for loop
   for (let i = 0; i <= hoursOpen; i++) {
     let customers = this.randomCustomers();
@@ -41,14 +48,13 @@ CookieLocation.prototype.dailyCookiesSold = function(){
   } //end for loop
 };
 
-CookieLocation.prototype.render = function(){
+CookieLocation.prototype.createTableRow = function(){
+
   let dataRow = document.createElement('tr');
-  // dataRow.innerHTML='';
-  tbody.appendChild(dataRow);
-  // dataRow.innerHTML = '';
+  let tableData = document.createElement('td');
+
 
   // create cells
-  let tableData = document.createElement('td');
   tableData.textContent = this.location;
   dataRow.appendChild(tableData);
 
@@ -68,9 +74,32 @@ CookieLocation.prototype.render = function(){
   tableDataTotal.textContent = totalCookiesSold;
   // tableDataTotal.style='font-weight: 600; list-style:none; padding: 10px 0;';
   dataRow.appendChild(tableDataTotal);
+
+  return dataRow;
 };
 
-function displayTableHeader(){
+CookieLocation.prototype.render = function(){
+  let dataRow = this.createTableRow();
+  tbody.appendChild(dataRow);
+}
+
+
+addStandBtn.addEventListener('submit', function(event){
+  event.preventDefault();
+  let {stand, min, max, avg} = event.target;
+  stand = stand.value;
+  min = parseInt(min.value);
+  max = parseInt(max.value);
+  avg = parseFloat(avg.value);
+
+  new CookieLocation(stand, min, max, avg);
+  console.log(stores);
+  populateTableBody();
+  populateTableFooter();
+});
+
+
+function populateTableHeader(){
 
   // creates <tr> to hold each time cell
   let headerRow = document.createElement('tr');
@@ -109,7 +138,7 @@ function displayTableHeader(){
   headerRow.appendChild(totalHeader);
 }
 
-function displayTableBody(){
+function populateTableBody(){
   tbody.innerHTML='';
   
   for (let i = 0; i < stores.length; i++){
@@ -120,7 +149,7 @@ function displayTableBody(){
 
 }
 
-function displayTableFooter(){
+function populateTableFooter(){
   tfoot.innerHTML ='';
   let footerRow = document.createElement('tr');
   tfoot.appendChild(footerRow);
@@ -156,25 +185,7 @@ function displayTableFooter(){
 }
 
 
-let addStandBtn = document.getElementById('addCookieStand');
 
-addStandBtn.addEventListener('submit', function(event){
-  event.preventDefault();
-  // same as let stand = event.target.stand.value;
-  // let min = event.target.min.value;
-  // let max = event.target.max.value;
-  // let value = event.target.value
-  let {stand, min, max, avg} = event.target;
-  stand = stand.value;
-  min = parseInt(min.value);
-  max = parseInt(max.value);
-  avg = parseFloat(avg.value);
-
-  new CookieLocation(stand, min, max, avg);
-  console.log(stores);
-  displayTableBody();
-  displayTableFooter();
-});
 
 let seattle = new CookieLocation('Seattle', 23, 65, 6.3);
 let tokyo = new CookieLocation('Tokyo', 3, 24, 1.2);
@@ -190,6 +201,8 @@ let lima = new CookieLocation('Lima', 2, 16, 4.6);
 // let paris = new CookieLocation('Paris', 1, 1, 1);
 // let lima = new CookieLocation('Lima', 1, 1, 1);
 
-displayTableHeader();
-displayTableBody();
-displayTableFooter();
+// addStandBtn.addEventListener('click', addStand);
+// addStand();
+populateTableHeader();
+populateTableBody();
+populateTableFooter();

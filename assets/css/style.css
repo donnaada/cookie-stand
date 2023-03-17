@@ -106,7 +106,7 @@ form {
   margin: 0 auto;
   width: 400px;
   padding: 1em;
-  border: 1px solid #CCC;
+  /* border: 1px solid #CCC; */
   border-radius: 1em;
 }
 
@@ -159,8 +159,8 @@ legend{
   padding-inline-end: 2px;
 }
 
-fieldset+fieldset{
-  margin: 5px;
+fieldset div+div{
+  margin: 2px;
 }
 
 /* header */
